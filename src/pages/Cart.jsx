@@ -1,6 +1,8 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -22,7 +24,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="bg-indigo-200 pt-24 px-6 min-h-screen">
+    <div className="bg-indigo-200 pt-24  min-h-screen">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Your Cart</h1>
 
@@ -36,7 +38,7 @@ const Cart = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full object-cover rounded-lg"
+                  className="w-full h-64 object-cover rounded-lg"
                 />
                 <div>
                   <h2 className="text-xl font-semibold text-gray-800">
@@ -66,6 +68,7 @@ const Cart = () => {
           </h3>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

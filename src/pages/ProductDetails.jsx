@@ -2,6 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { useState } from "react";
+import RelatedProducts from "../components/RelatedProducts";
+import Footer from "../components/Footer";
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -9,40 +13,113 @@ const ProductDetails = () => {
 
   const product = products.find((item) => item.id === parseInt(id));
 
+  const [quantity, setQuantity] = useState(1);
+
   if (!product) {
-    return <div className="text-center text-2xl mt-20">Product not found</div>;
+    return (
+      <div className="text-center text-2xl mt-20 text-red-600">
+        Product not found
+      </div>
+    );
   }
 
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const starsArray = [];
+
+    for (let i = 1; i <= 5; i++) {
+      if (i <= fullStars) {
+        starsArray.push(
+          <span key={i} className="text-yellow-400 text-xl">
+            ★
+          </span>
+        );
+      } else {
+        starsArray.push(
+          <span key={i} className="text-gray-300 text-xl">
+            ★
+          </span>
+        );
+      }
+    }
+
+    return starsArray;
+  };
+
   return (
-    <div className="bg-white py-16 px-6 mt-10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+    <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Product Image */}
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full md:w-[450px] h-[450px] object-cover rounded-lg shadow-lg"
-        />
+        <div className="w-full h-full">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-[500px] object-cover rounded-2xl shadow-xl"
+          />
+        </div>
 
         {/* Product Info */}
-        <div className="w-full md:w-1/2">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            {product.name}
-          </h1>
-          <p className="text-blue-600 text-2xl font-semibold mb-6">
+
+        <div className="flex flex-col gap-6">
+          {/* Title */}
+          <h1 className="text-4xl font-bold text-gray-800">{product.name}</h1>
+
+          {/* Category */}
+          <p className="text-sm text-gray-500 uppercase">{product.category}</p>
+
+          {/* Description */}
+          <p className="text-gray-700 leading-relaxed">{product.description}</p>
+
+          {/* Price */}
+          <p className="text-3xl text-pink-600 font-semibold">
             ${product.price}
           </p>
-          <p className="text-gray-600 leading-relaxed mb-8">
-            {product.description}
-          </p>
 
+          {/* Rating Stars */}
+          <div className="flex items-center gap-2">
+            {renderStars(product.rating || 4.5)}
+            <span className="text-sm text-gray-500 ml-2">
+              ({product.rating || 4.5})
+            </span>
+          </div>
+
+          {/* Quantity Selector */}
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-gray-700 font-medium">Quantity:</span>
+
+            <div className="flex items-center border rounded-md px-3 py-1">
+              <button
+                onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
+                className="text-xl px-2 text-gray-600"
+              >
+                -
+              </button>
+
+              <span className="px-4 text-lg">{quantity}</span>
+
+              <button
+                onClick={() => setQuantity((prev) => prev + 1)}
+                className="text-xl px-2 text-gray-600"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          {/* Add to Cart */}
           <button
-            onClick={() => addToCart(product)}
+            onClick={() => addToCart(product, quantity)}
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition"
           >
             Add to Cart
           </button>
         </div>
       </div>
+
+      <RelatedProducts currentProduct={product} />
+
+      <Footer/>
+
     </div>
   );
 };

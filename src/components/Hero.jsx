@@ -44,11 +44,11 @@ const Hero = () => {
           <img
             src={img2}
             alt="Leather Bag 1"
-            className="w-64 h-64 object-contain"
+            className="w-full h-72 object-contain rounded-lg "
           />
           <div className="text-center mt-4">
             <h1 className="text-3xl font-bold text-gray-800 font-heading">Wally Slim Leather Bags</h1>
-            <h2 className="text-xl text-blue-600 mt-2">$124</h2>
+            {/* <h2 className="text-xl text-blue-600 mt-2">$124</h2> */}
           </div>
         </div>
 
@@ -57,7 +57,7 @@ const Hero = () => {
           <img
             src={img1}
             alt="Hero Leather Bag"
-            className="w-96 h-[450px] object-cover rounded-xl shadow-2xl translate-y-8"
+            className="w-full h-[650px] object-cover rounded-xl shadow-2xl translate-y-8"
           />
         </div>
       </div>

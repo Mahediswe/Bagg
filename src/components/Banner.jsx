@@ -40,8 +40,7 @@
 
 
 import React from "react";
-import img1 from "../assets/banner-image-1.jpeg";
-import img2 from "../assets/banner-image-2.jpeg";
+
 
 const Banner = () => {
   return (
@@ -66,13 +65,13 @@ const Banner = () => {
         <div className="w-full md:w-1/2 relative flex justify-center">
           {/* Back Image */}
           <img
-            src={img2}
+            src="/images/banner-2.jpeg"
             alt="Bag Style 2"
             className="w-64 h-64 object-cover rounded-xl shadow-lg transform translate-x-8 translate-y-8 z-0"
           />
           {/* Front Image */}
           <img
-            src={img1}
+            src="/images/banner-1.jpeg"
             alt="Main Banner"
             className="w-64 h-64 object-cover rounded-xl shadow-2xl absolute top-0 left-0 z-10"
           />

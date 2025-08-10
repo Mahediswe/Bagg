@@ -58,7 +58,6 @@
 
 
 import React from "react";
-import logo from "../assets/logo.jpeg";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
@@ -69,7 +68,7 @@ const Footer = () => {
         <div>
           <div className="mb-4">
             <img
-              src={logo}
+              src="/images/logo.jpeg"
               alt="Baggo Logo"
               className="w-full h-20  object-cover "
             />

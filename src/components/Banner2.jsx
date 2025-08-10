@@ -1,6 +1,5 @@
 import React from 'react'
 import { FaPlay } from 'react-icons/fa'
-import img from '../assets/banner-image-2.jpeg'
 
 const Banner2 = () => {
   return (
@@ -9,8 +8,8 @@ const Banner2 = () => {
         {/* Left Image */}
         <div className="w-1/2 h-full  p-16 m-16">
           <img
-            src={img}
-            alt="Banner"
+          src="/images/banner-1.jpeg"
+           alt="Banner"
             className="w-full h-full object-cover rounded-l-lg"
           />
         </div>

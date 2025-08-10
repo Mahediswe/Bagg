@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaShoppingCart } from 'react-icons/fa';
-import logo from '../assets/logo.jpeg'; // Replace with your actual logo
+//import logo from '../assets/logo.jpeg'; // Replace with your actual logo
 import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Baggo Logo" className="w-full h-12 rounded-full object-cover" />
+          <img src="/images/logo.jpeg" alt="Baggo Logo" className="w-full h-12 rounded-full object-cover" />
         </div>
 
         {/* Desktop Menu */}

@@ -32,8 +32,7 @@
 // export default Hero
 
 import React from 'react'
-import img1 from '../assets/banner-image-1.jpeg'
-import img2 from '../assets/banner-image-2.jpeg' // PNG with transparent background
+
 
 const Hero = () => {
   return (
@@ -42,7 +41,7 @@ const Hero = () => {
         {/* Left Side - Transparent Bag Image with Title & Price */}
         <div className="flex flex-col items-center">
           <img
-            src={img2}
+            src="/images/banner-2.jpeg"
             alt="Leather Bag 1"
             className="w-full h-72 object-contain rounded-lg "
           />
@@ -55,7 +54,7 @@ const Hero = () => {
         {/* Right Side - Hero Main Bag Image */}
         <div className="relative mt-10 md:mt-0">
           <img
-            src={img1}
+            src="/images/banner-1.jpeg"
             alt="Hero Leather Bag"
             className="w-full h-[650px] object-cover rounded-xl shadow-2xl translate-y-8"
           />

@@ -29,9 +29,9 @@ const Cart = () => {
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Your Cart</h1>
 
         <div className="flex flex-col gap-6">
-          {cartItems.map((item) => (
+          {/* {cartItems.map((item,index) => (
             <div
-              key={item.id}
+              key={index}
               className="flex flex-col md:flex-row items-center justify-between border-b pb-4"
             >
               <div className="flex items-center gap-6 w-full md:w-1/2">
@@ -59,7 +59,41 @@ const Cart = () => {
                 Remove
               </button>
             </div>
-          ))}
+          ))} */}
+          
+          {cartItems.map((item) => (
+  <div
+    key={item.id || item._id}  
+    className="flex flex-col md:flex-row items-center justify-between border-b pb-4"
+  >
+    <div className="flex items-center gap-6 w-full md:w-1/2">
+      <img
+  src={`/images/${item.image}`} 
+        alt={item.name}
+        className="w-full h-64 object-cover rounded-lg"
+      />
+      <div>
+        <h2 className="text-xl font-semibold text-gray-800">
+          {item.name}
+        </h2>
+        <p className="text-gray-500">Qty: {item.qty}</p>
+      </div>
+    </div>
+
+    <div className="text-xl font-semibold text-blue-600">
+      ${item.price * item.qty}
+    </div>
+
+    <button
+      onClick={() => removeFromCart(item._id)} 
+      className="mt-4 md:mt-0 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full transition"
+    >
+      Remove
+    </button>
+  </div>
+))}
+
+
         </div>
 
         <div className="mt-10 text-right">

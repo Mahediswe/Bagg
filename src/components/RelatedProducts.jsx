@@ -42,7 +42,7 @@ const RelatedProducts = ({ currentProduct }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://bagg-backend-qxx4.vercel.app/api/products")
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error(err));
@@ -61,7 +61,7 @@ const RelatedProducts = ({ currentProduct }) => {
   if (related.length === 0) return null;
 
   return (
-    <div className="mt-20 my-7">
+    <div className="mt-20 my-7 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Related Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {related.map((item) => (

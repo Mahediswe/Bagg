@@ -70,7 +70,7 @@ const Cart = () => {
       <img
   src={`/images/${item.image}`} 
         alt={item.name}
-        className="w-full h-64 object-cover rounded-lg"
+        className="w-80 h-40 object-cover rounded-lg"
       />
       <div>
         <h2 className="text-xl font-semibold text-gray-800">

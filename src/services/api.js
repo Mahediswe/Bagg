@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+const BASE = process.env.REACT_APP_API_URL || 'https://bagg-backend-qxx4.vercel.app/api';
 
 export const apiGet = async (path) => {
   const res = await fetch(`${BASE}${path}`);
@@ -19,6 +19,6 @@ export const apiPost = async (path, body) => {
 };
 
 
-const API = axios.create({ baseURL: "http://localhost:3000/api" });
+const API = axios.create({ baseURL: BASE });
 
 export const getProducts = () => API.get("/products");
